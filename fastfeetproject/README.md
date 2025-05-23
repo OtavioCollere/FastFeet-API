@@ -31,10 +31,10 @@ Nesse desafio desenvolveremos uma API para controle de encomendas de uma transpo
 * O Entregador pode clicar na encomenda disponivel e clicar em retirar, e a encomendo fica com status 'AGUARDANDO' WAITING
 * Quando entregar ficara com status 'delivered'
 
-[] - Deve ser possível realizar o CRUD das encomendas
-[] - Deve ser possível marcar uma encomenda como aguardando (Disponível para retirada)
-[] - Deve ser possível retirar uma encomenda
-[] - Deve ser possível marcar uma encomenda como entregue
+[x] - Deve ser possível realizar o CRUD das encomendas
+[x] - Deve ser possível marcar uma encomenda como aguardando (Disponível para retirada)
+[x] - Deve ser possível retirar uma encomenda
+[x] - Deve ser possível marcar uma encomenda como entregue
 [] - Deve ser possível marcar uma encomenda como devolvida
 [] - Deve ser possível listar as encomendas com endereços de entrega próximo ao local do entregador
 
