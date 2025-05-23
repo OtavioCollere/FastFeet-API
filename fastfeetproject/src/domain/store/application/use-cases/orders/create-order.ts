@@ -20,7 +20,8 @@ type CreateOrderUseCaseResponse = Either<
 // O entregador que vai pickar a encomenda depois
 
 @Injectable()
-export class CreateOrderUseCase {
+export
+ class CreateOrderUseCase {
   constructor(
     private ordersRepository: OrdersRepository,
     private recipientsRepository : RecipientsRepository
