@@ -2,15 +2,26 @@ import { Entity } from 'src/core/entities/entity';
 import { UniqueEntityID } from 'src/core/entities/unique-entity-id';
 import type { Optional } from 'src/core/types/optional';
 
-interface UserProps {
+export interface UserProps {
+  name : string,
   cpf: string;
   password: string;
-  admin: boolean;
+  admin?: boolean;
   createdAt?: Date;
   updatedAt?: Date;
 }
 
 export class User extends Entity<UserProps> {
+
+  get name() : string {
+    return this.props.name;
+  }
+
+  set name(value : string) {
+    this.props.name = value;
+    this.touch();
+  }
+
   get cpf(): string {
     return this.props.cpf;
   }
@@ -29,7 +40,7 @@ export class User extends Entity<UserProps> {
     this.touch();
   }
 
-  get admin(): boolean {
+  get admin(): boolean | undefined {
     return this.props.admin;
   }
 
@@ -51,16 +62,17 @@ export class User extends Entity<UserProps> {
   }
 
   static create(
-    props: Optional<UserProps, 'createdAt' | 'updatedAt'>,
-    id?: string,
+    props: Optional<UserProps, 'admin' | 'createdAt' | 'updatedAt'>,
+    id?: UniqueEntityID,
   ) {
     const user = new User(
       {
         ...props,
+        admin : props.admin ?? false,
         createdAt: props.createdAt ?? new Date(),
         updatedAt: props.updatedAt ?? new Date(),
       },
-      new UniqueEntityID(id),
+      id,
     );
 
     return user;

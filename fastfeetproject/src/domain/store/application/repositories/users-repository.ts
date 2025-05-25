@@ -1,4 +1,3 @@
-import type { Recipient } from '../../enterprise/entities/recipient';
 import type { User } from '../../enterprise/entities/user';
 
 export abstract class UsersRepository {
@@ -9,5 +8,6 @@ export abstract class UsersRepository {
 
   // Finds
   abstract findByUserId(id : string) : Promise<User | null>
+  abstract findByUserCPF(cpf : string) : Promise<User | null>
 
 }

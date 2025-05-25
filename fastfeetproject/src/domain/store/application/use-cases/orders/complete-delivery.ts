@@ -6,25 +6,25 @@ import { OrderIsNotAvailableToDeliverError } from "src/core/errors/errors/order-
 import { DeliveryPersonIsNotTheSameError } from "src/core/errors/errors/delivery-person-is-not-the-same-error";
 
 
-interface PickupOrderUseCaseRequest{
+interface CompleteDeliveryUseCaseRequest{
   orderId : string
   deliveryPersonId : string
 }
 
-type PickupOrderUseCaseResponse = Either<
+type CompleteDeliveryUseCaseResponse = Either<
   OrderIsNotAvailableToPickupError | DeliveryPersonIsNotTheSameError,
   {
     order: Order
   }
 >
 
-export class PickupOrderUseCase{
+export class CompleteDeliveryUseCase{
 
   constructor(
     private ordersRepository: OrdersRepository,
   ) {}
 
-  async execute({orderId, deliveryPersonId} : PickupOrderUseCaseRequest) : Promise<PickupOrderUseCaseResponse> {
+  async execute({orderId, deliveryPersonId} : CompleteDeliveryUseCaseRequest) : Promise<CompleteDeliveryUseCaseResponse> {
 
     const order = await this.ordersRepository.findPickedUpOrderById(orderId);
 
@@ -33,7 +33,7 @@ export class PickupOrderUseCase{
       return left(new OrderIsNotAvailableToDeliverError())
     }
 
-    if (deliveryPersonId === order.deliveryPersonId.toString())
+    if (deliveryPersonId !== order.deliveryPersonId?.toString())
     {
       return left(new DeliveryPersonIsNotTheSameError());
     }

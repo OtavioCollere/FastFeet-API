@@ -6,7 +6,7 @@ import type { RecipientsRepository } from '../../repositories/recipient-reposito
 import type { UsersRepository } from '../../repositories/users-repository';
 import type { OrdersRepository } from '../../repositories/orders-repository';
 import type { Order } from 'src/domain/store/enterprise/entities/order';
-import { left, type Either } from 'src/core/either';
+import { left, right, type Either } from 'src/core/either';
 
 interface UpdateOrderUseCaseRequest {
   orderId : string, 
@@ -50,7 +50,7 @@ export class UpdateOrderUseCase {
 
     const recipientExists = await this.recipientRepository.findByRecipientId(recipientId);
 
-    if (!deliveryPersonExists)
+    if (!recipientExists)
     {
       return left(new RecipientNotFoundError());
     }
@@ -61,9 +61,13 @@ export class UpdateOrderUseCase {
       return left(new OrderNotFoundError());
     }
 
-    order.status = status;
-    order.withdrawalDate = withdrawalDate;
+    if (status !== undefined) {
+      order.status = status;
+    }
+    order.withdrawalDate = withdrawalDate ?? null;
     order.deliveryDate = deliveryDate;
+    order.recipientId = recipientId;
+    order.deliveryPersonId = deliveryPersonId
 
     await this.ordersRepository.save(order);
 

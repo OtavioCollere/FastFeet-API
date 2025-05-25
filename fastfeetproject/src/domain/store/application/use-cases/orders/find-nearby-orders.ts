@@ -1,12 +1,12 @@
-import type { Either } from "src/core/either";
+// import type { Either } from "src/core/either";
 
 
-interface PickupOrderUseCaseRequest{
+// interface PickupOrderUseCaseRequest{
 
-}
+// }
 
-type PickupOrderUseCaseResponse = Either<>
+// type PickupOrderUseCaseResponse = Either<>
 
-export class PickupOrderUseCase{
-  async execute() {}
-}
+// export class PickupOrderUseCase{
+//   async execute() {}
+// }

@@ -2,7 +2,7 @@ import { Entity } from 'src/core/entities/entity';
 import { UniqueEntityID } from 'src/core/entities/unique-entity-id';
 import type { Optional } from 'src/core/types/optional';
 
-interface RecipientProps {
+export interface RecipientProps {
   name: string;
   zipCode: string;
   address: string;
@@ -82,15 +82,15 @@ export class Recipient extends Entity<RecipientProps> {
 
   static create(
     props: Optional<RecipientProps, 'createdAt' | 'updatedAt'>,
-    id?: string,
+    id?: UniqueEntityID
   ) {
     const recipient = new Recipient(
       {
         ...props,
         createdAt: props.createdAt ?? new Date(),
-        updatedAt: props.updatedAt ?? new Date(),
+        updatedAt: props.updatedAt ?? new Date()
       },
-      new UniqueEntityID(id),
+      id
     );
 
     return recipient;
