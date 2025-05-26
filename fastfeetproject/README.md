@@ -26,6 +26,21 @@ O motivo disso é para vocês **também** exercitarem ****o desenvolvimento e a 
 
 Nesse desafio desenvolveremos uma API para controle de encomendas de uma transportadora fictícia, a FastFeet.
 
+falta 
+[] - criar crud destinatario
+[] - crud entregadores
+[] - controllers
+[] - mappers
+
+duvidas
+[] - rever video zod validation pipe
+[] - rever authentication
+
+passo a passo testes E2E
+- instalar vitest swc $ npm i --save-dev vitest unplugin-swc @swc/core @vitest/coverage-v8
+- criar vitest.config.ts
+- criar banco de dados isolados 
+
 ## Encomenda ( order )
 * Quando a encomenda é criada, ela começa no estado AVAILABLE ( aguardando retirada ) - WAITING_PICKUP
 * O Entregador pode clicar na encomenda disponivel e clicar em retirar, e a encomendo fica com status 'AGUARDANDO' WAITING
@@ -43,7 +58,7 @@ Nesse desafio desenvolveremos uma API para controle de encomendas de uma transpo
 
 [x] - A aplicação deve ter dois tipos de usuário, entregador e/ou admin
 [x] - Deve ser possível realizar login com CPF e Senha
-[x] - Deve ser possível realizar o CRUD dos entregadores
+[] - Deve ser possível realizar o CRUD dos entregadores
 [] - Deve ser possível realizar o CRUD dos destinatários
 [] - Deve ser possível alterar a senha de um usuário
 [] - Deve ser possível listar as entregas de um usuário
