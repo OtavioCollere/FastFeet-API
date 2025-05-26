@@ -1,3 +1,4 @@
+import { execSync } from 'child_process'
 import { randomUUID } from 'crypto'
 import 'dotenv/config'
 
@@ -23,6 +24,8 @@ beforeAll(async () => {
   const databaseURL = generateUniqueDatabaseURL(randomUUID())  
 
   process.env.DATABASE_URL = databaseURL;
+
+  execSync('pnpm prisma migrate deploy')
 })
 
 afterAll(async () => {
