@@ -36,6 +36,16 @@ duvidas
 [] - rever video zod validation pipe
 [] - rever authentication
 
+APP MODULE
+- Importa todos os modulos
+  * auth / http / envModule / eventsModule
+
+Http module
+- criar na pasta infra/http
+- importar todas as controllers
+- importar todos os providers ( casos de use )
+![alt text](image.png)
+
 passo a passo testes E2E
 - instalar vitest swc $ npm i --save-dev vitest unplugin-swc @swc/core @vitest/coverage-v8
 - criar vitest.config.ts
