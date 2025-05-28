@@ -1,6 +1,8 @@
-import type { PrismaService } from "@/infra/database/prisma/prisma.service"
+import { AppModule } from "@/infra/app.module"
+import { PrismaService } from "@/infra/database/prisma/prisma.service"
 import type { INestApplication } from "@nestjs/common"
 import { Test} from "@nestjs/testing"
+import request from 'supertest'
 
 describe('Create order (E2E)', () => {
   let app: INestApplication
@@ -19,11 +21,10 @@ describe('Create order (E2E)', () => {
   })
 
   test('[POST] /orders', async () => {
-    const response = await request(app.getHttpServer()).post('/order/valid-recipient-id')
+    const response = await request(app.getHttpServer()).post('/order/1')
     .send() 
 
-
-    expect(response.statusCode).toBe(201))
+    expect(response.statusCode).toBe(201));
 
     const userOnDatabase = await prisma.order.findUnique({
       where : {

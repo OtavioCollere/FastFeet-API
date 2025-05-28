@@ -1,50 +1,25 @@
-# FastFeet[] -API
-# Desafio 04
-
-Desafio referente aos módulos: DDD no Node.js e NestJS
-
-## Introdução
-
-Faaala Dev,
-
-Nesse desafio você reforçará de forma prática os **conceitos** que aprendemos nesses módulos.
-
-Como se trata de um desafio, ele necessita de alguns conhecimentos além dos abordados nesse módulo, então é importante ter autonomia para conseguir pesquisar essas coisas caso não saiba como resolver. Por isso, lembre[] -se, t**enha calma** e **acredite no seu processo.**
-
-Além isso, este é um desafio prático e opcional, por tanto não há correção sobre ele.
-
-O aprendizado daqui é muito importante e com certeza você conseguirá sair com muito conhecimento bacana 💜
-
-## Sobre o desafio
-
-<aside>
-⚠️ Como informamos anteriormente, **não** vamos mais descrever detalhadamente rotas e propriedades dos registros a serem criadas, mas sim, as regras e requisitos que a API deve ter.
-
-O motivo disso é para vocês **também** exercitarem ****o desenvolvimento e a estruturação dessa parte.
-
-</aside>
-
 Nesse desafio desenvolveremos uma API para controle de encomendas de uma transportadora fictícia, a FastFeet.
 
+criar apostila 
+[] - configuracao env
+[] - configuracao auth
+[] - configuracao tsconfig
+[] - configuracao eslint
+[] - configuracao useguard
+
 falta 
-[] - criar crud destinatario
-[] - crud entregadores
+[x] - criar crud destinatario
+[] - criar teste unitario para destinatario
+
+[x] - crud entregadores
+
 [] - controllers
 [] - mappers
+[] - repositorios prisma
 
 duvidas
 [] - rever video zod validation pipe
 [] - rever authentication
-
-APP MODULE
-- Importa todos os modulos
-  * auth / http / envModule / eventsModule
-
-Http module
-- criar na pasta infra/http
-- importar todas as controllers
-- importar todos os providers ( casos de use )
-![alt text](image.png)
 
 passo a passo testes E2E
 - instalar vitest swc $ npm i --save-dev vitest unplugin-swc @swc/core @vitest/coverage-v8
