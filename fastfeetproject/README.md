@@ -2,6 +2,9 @@ Nesse desafio desenvolveremos uma API para controle de encomendas de uma transpo
 
 criar apostila 
 [] - configuracao env
+[] - docker-compose
+[] - criacao ambiente prisma
+[] - configuracao vitest + configuracao ambiente isolado
 [] - configuracao auth
 [] - configuracao tsconfig
 [] - configuracao eslint
