@@ -13,7 +13,7 @@ export const registerRecipientBodySchema = z.object({
   phone : z.string().max(11)
 })
 
-type RegisterRecipientBodySchema = z.infer<RegisterRecipientBodySchema>;
+type RegisterRecipientBodySchema = z.infer<typeof registerRecipientBodySchema>;
 
 @Controller('recipient')
 export class RegisterRecipientController{
@@ -37,6 +37,16 @@ export class RegisterRecipientController{
       number,
       phone
     })
+
+    if (result.isLeft())
+    {
+      const error = result.value;
+
+      if (!error) {
+        throw new BadRequestException("An unknown error occurred.");
+      }
+
+    }
 
   }
 }

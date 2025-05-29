@@ -19,9 +19,7 @@ export class PickUpOrderController {
     private pickupOrder : PickupOrderUseCase
   ) {}
 
-  Post()
-  // verificar se é esse codigo mesmo
-  @HttpCode(201)
+  @Post()
   @UsePipes(new ZodValidationPipe(pickupOrderBodySchema))
   async handle(@Body() body : PickupOrderBodySchema) {
     const {orderId, deliveryPersonId} = body;
