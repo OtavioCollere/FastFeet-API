@@ -3,8 +3,11 @@ import {
   Recipient,
   type RecipientProps
 } from '@/domain/store/enterprise/entities/recipient';
+import { PrismaRecipientMapper } from '@/infra/database/prisma/mappers/prisma-recipient-mapper';
+import type { PrismaService } from '@/infra/database/prisma/prisma.service';
 
 import { faker } from '@faker-js/faker';
+import { Injectable } from '@nestjs/common';
 
 export function makeRecipient(override: Partial<RecipientProps>, id?: UniqueEntityID) {
   const recipient = Recipient.create(
@@ -22,3 +25,18 @@ export function makeRecipient(override: Partial<RecipientProps>, id?: UniqueEnti
 
   return recipient;
 }
+
+@Injectable()
+export class RecipientFactory{
+  constructor(private prisma : PrismaService) {}
+
+  async makePrismaRecipient(data: Partial<RecipientProps> = {} ): Promise<Recipient> {
+    const recipient = makeRecipient(data);
+
+    await this.prisma.recipient.create({
+      data : PrismaRecipientMapper.toPrisma(recipient)
+    })
+
+    return recipient
+  }
+} 

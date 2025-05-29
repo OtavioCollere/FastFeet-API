@@ -1,6 +1,8 @@
 Nesse desafio desenvolveremos uma API para controle de encomendas de uma transportadora fictícia, a FastFeet.
 
 criar apostila 
+[] - import/providers para implementar classes 
+[] - Config Module
 [] - configuracao env
 [] - docker-compose
 [] - criacao ambiente prisma
