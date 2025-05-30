@@ -1,16 +1,26 @@
 import { UniqueEntityID } from "@/core/entities/unique-entity-id";
 import { Order } from "@/domain/store/enterprise/entities/order";
-import type { Recipient } from "@/domain/store/enterprise/entities/recipient";
-
+import type { Prisma } from "generated/prisma";
 
 export class PrismaOrdersMapper{
-  static toDomain(raw : Order /* recipient do prisma */) : Order {
+  static toDomain(raw : ) : Order {
     return Order.create({
-      deliveryPersonId : raw.deliveryPersonId?.toString(),
-      recipientId,
-      status,
-      withdrawalDate,
-      deliveryDate,
+      deliveryPersonId: raw.deliveryPersonId ? new UniqueEntityID(raw.deliveryPersonId) : undefined,
+      recipientId : raw.recipientId ? new UniqueEntityID(raw.recipientId) : null,
+      status : raw.status,
+      withdrawalDate : raw.withdrawalDate ?? null,
+      deliveryDate : raw.deliveryDate ?? undefined,
     }, new UniqueEntityID(raw.id))
+  }
+
+  static toPrisma(order : Order) : Prisma.OrderUncheckedCreateInput {
+    return {
+      id : order.id.toString(),
+      deliveryPersonId : order.deliveryPersonId?.toString(),
+      recipientId : order.recipientId.toString(),
+      status : order.status,
+      withdrawalDate : order.withdrawalDate ? order.withdrawalDate : null,
+      deliveryDate : order.deliveryDate ? order.deliveryDate : null,
+    }
   }
 }

@@ -14,12 +14,9 @@ criar apostila
 [] - configuracao mappers e presenters
 
 falta 
-[x] - criar crud destinatario
 [] - criar teste unitario para destinatario
+[] - criar teste unitario para usuário 
 
-[x] - crud entregadores
-
-[] - controllers
 [] - mappers
 [] - repositorios prisma
 
