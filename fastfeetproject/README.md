@@ -11,6 +11,7 @@ criar apostila
 [] - configuracao tsconfig
 [] - configuracao eslint
 [] - configuracao useguard
+[] - configuracao mappers e presenters
 
 falta 
 [x] - criar crud destinatario

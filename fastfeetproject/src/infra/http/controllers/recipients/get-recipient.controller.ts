@@ -1,19 +1,21 @@
 import { BadRequestException, Controller, Get, HttpCode, NotFoundException, Param,  } from "@nestjs/common";
 import { RecipientNotFoundError } from "@/core/errors/errors/recipient-not-found-error";
+import type { GetRecipientUseCase } from "@/domain/store/application/use-cases/recipients/get-recipient";
+import { PrismaRecipientMapper } from "@/infra/database/prisma/mappers/prisma-recipient-mapper";
 import { RecipientPresenter } from "../../presenter/recipient-presenter";
-import type { DeleteRecipientUseCase } from "@/domain/store/application/use-cases/recipients/delete-recipient";
 
 @Controller('/recipient')
-export class DeleteRecipientController{
+export class UpdateRecipientController{
 
   constructor(
-    private deleteRecipient : DeleteRecipientUseCase
+    private getRecipient : GetRecipientUseCase
   ) {}
 
   @Get('/:recipientId')
+  @HttpCode(201)
   async handle(@Param('recipientId') recipientId : string) {
 
-    const result = await this.deleteRecipient.execute({recipientId})
+    const result = await this.getRecipient.execute({recipientId})
 
     if (result.isLeft())
     {
@@ -29,7 +31,9 @@ export class DeleteRecipientController{
 
     }
 
-    return {  }
+    const recipient = result.value.recipient
+
+    return { recipient : RecipientPresenter.toHTTP(recipient) }
 
   }
 }

@@ -1,8 +1,8 @@
-import { BadRequestException, Body, Controller, HttpCode, Post, UsePipes } from "@nestjs/common";
+import { BadRequestException, Body, Controller, HttpCode, NotFoundException, Patch, Post, UsePipes } from "@nestjs/common";
 import { ZodValidationPipe } from "../../pipes/zod-validation-pipe";
 import {z} from 'zod';
-import type { RegisterRecipientUseCase } from "@/domain/store/application/use-cases/recipients/register-recipient";
 import type { UpdateRecipientUseCase } from "@/domain/store/application/use-cases/recipients/update-recipient";
+import { RecipientNotFoundError } from "@/core/errors/errors/recipient-not-found-error";
 
 const updateRecipientBodySchema = z.object({
   recipientId : z.string(),
@@ -23,14 +23,15 @@ export class UpdateRecipientController{
     private updateRecipient : UpdateRecipientUseCase
   ) {}
 
-  @Post()
+  @Patch()
   @HttpCode(201)
   @UsePipes(new ZodValidationPipe(updateRecipientBodySchema))
   async handle(@Body() body : UpdateRecipientBodySchema) {
 
-    const { name, zipCode, address, district, number, phone } = body;
+    const { recipientId, name, zipCode, address, district, number, phone } = body;
 
     const result = await this.updateRecipient.execute({
+      recipientId,
       name, 
       zipCode,
       address,
@@ -43,8 +44,12 @@ export class UpdateRecipientController{
     {
       const error = result.value;
 
-      if (!error) {
-        throw new BadRequestException("An unknown error occurred.");
+      switch(error.constructor)
+      {
+        case RecipientNotFoundError :
+          throw new NotFoundException(error.message);
+        default : 
+          throw new BadRequestException();
       }
 
     }
