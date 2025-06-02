@@ -17,6 +17,9 @@ falta
 [] - criar teste unitario para destinatario
 [] - criar teste unitario para usuário 
 
+[] - finalizar controllers para usuários
+[] - testes e2e para todas as controllers
+
 [] - mappers
 [] - repositorios prisma
 

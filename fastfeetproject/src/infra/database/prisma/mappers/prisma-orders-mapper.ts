@@ -1,9 +1,9 @@
 import { UniqueEntityID } from "@/core/entities/unique-entity-id";
 import { Order } from "@/domain/store/enterprise/entities/order";
-import type { Prisma } from "generated/prisma";
+import type { Order as PrismaOrder, Prisma } from "generated/prisma";
 
 export class PrismaOrdersMapper{
-  static toDomain(raw : ) : Order {
+  static toDomain(raw : PrismaOrder) : Order {
     return Order.create({
       deliveryPersonId: raw.deliveryPersonId ? new UniqueEntityID(raw.deliveryPersonId) : undefined,
       recipientId : raw.recipientId ? new UniqueEntityID(raw.recipientId) : null,

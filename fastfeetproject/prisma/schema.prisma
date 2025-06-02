@@ -52,6 +52,7 @@ model Recipient {
   name      String
   address   String
   district  String
+  zipCode   String
   number    String
   phone     String
   createdAt DateTime @default(now())
