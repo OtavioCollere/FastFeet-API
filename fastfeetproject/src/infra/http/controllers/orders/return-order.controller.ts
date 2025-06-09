@@ -12,15 +12,14 @@ const returnOrderBodySchema = z.object({
 
 type returnOrderBodySchema = z.infer<typeof returnOrderBodySchema>
 
-@Controller('/orders/complete-delivery')
-export class CompleteDeliveryController {
+@Controller('/orders/')
+export class ReturnOrderController {
 
   constructor(
     private returnOrder : ReturnOrderUseCase
   ) {}
 
-  Post()
-  // verificar se é esse codigo mesmo
+  @Post('/return-order')
   @HttpCode(201)
   @UsePipes(new ZodValidationPipe(returnOrderBodySchema))
   async handle(@Body() body : returnOrderBodySchema) {

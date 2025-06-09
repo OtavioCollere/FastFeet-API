@@ -16,14 +16,14 @@ const completeDeliveryBodySchema = z.object({
 
 type CompleteDeliveryBodySchema = z.infer<typeof completeDeliveryBodySchema>
 
-@Controller('/orders/complete-delivery')
+@Controller('/orders')
 export class CompleteDeliveryController {
 
   constructor(
     private completeDelivery : CompleteDeliveryUseCase
   ) {}
 
-  Post()
+  @Post('/complete-delivery')
   // verificar se é esse codigo mesmo
   @HttpCode(201)
   @UsePipes(new ZodValidationPipe(completeDeliveryBodySchema))

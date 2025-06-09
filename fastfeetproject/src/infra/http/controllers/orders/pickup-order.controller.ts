@@ -12,14 +12,14 @@ const pickupOrderBodySchema = z.object({
 
 type PickupOrderBodySchema = z.infer<typeof pickupOrderBodySchema>
 
-@Controller('/orders/pickup')
+@Controller('/orders')
 export class PickUpOrderController {
 
   constructor(
     private pickupOrder : PickupOrderUseCase
   ) {}
 
-  @Post()
+  @Post('/pickup')
   @UsePipes(new ZodValidationPipe(pickupOrderBodySchema))
   async handle(@Body() body : PickupOrderBodySchema) {
     const {orderId, deliveryPersonId} = body;
