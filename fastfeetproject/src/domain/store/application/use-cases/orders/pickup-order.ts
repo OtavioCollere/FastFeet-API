@@ -1,8 +1,8 @@
 import { left, right, type Either } from "src/core/either";
 import { DeliveryPersonNotFoundError } from "src/core/errors/errors/delivery-person-not-found-error";
-import type { Order } from "src/domain/store/enterprise/entities/order";
-import type { OrdersRepository } from "../../repositories/orders-repository";
-import type { UsersRepository } from "../../repositories/users-repository";
+import { Order } from "src/domain/store/enterprise/entities/order";
+import { OrdersRepository } from "../../repositories/orders-repository";
+import { UsersRepository } from "../../repositories/users-repository";
 import { OrderIsNotAvailableToPickupError } from "src/core/errors/errors/order-is-not-available-to-pickup-error";
 import { Injectable } from "@nestjs/common";
 

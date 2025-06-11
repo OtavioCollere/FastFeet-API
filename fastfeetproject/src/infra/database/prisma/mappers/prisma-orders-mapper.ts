@@ -6,7 +6,7 @@ export class PrismaOrdersMapper{
   static toDomain(raw : PrismaOrder) : Order {
     return Order.create({
       deliveryPersonId: raw.deliveryPersonId ? new UniqueEntityID(raw.deliveryPersonId) : undefined,
-      recipientId : raw.recipientId ? new UniqueEntityID(raw.recipientId) : null,
+      recipientId : new UniqueEntityID(raw.recipientId),
       status : raw.status,
       withdrawalDate : raw.withdrawalDate ?? null,
       deliveryDate : raw.deliveryDate ?? undefined,

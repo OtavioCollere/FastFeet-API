@@ -1,4 +1,4 @@
-import type { UsersRepository } from "@/domain/store/application/repositories/users-repository";
+import { UsersRepository } from "@/domain/store/application/repositories/users-repository";
 import type { User } from "@/domain/store/enterprise/entities/user";
 
 export class InMemoryUsersRepository implements UsersRepository{

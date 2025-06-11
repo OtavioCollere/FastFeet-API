@@ -1,5 +1,5 @@
 import { left, right, type Either } from "@/core/either";
-import type { UsersRepository } from "../../repositories/users-repository";
+import { UsersRepository } from "../../repositories/users-repository";
 import { WrongCredentialsdError } from "@/core/errors/errors/wrong-credentials-error";
 import type { HashComparer } from "../../cryptograph/hash-comparer";
 import type { Encrypter } from "../../cryptograph/encrypter";

@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { OrderNotFoundError } from 'src/core/errors/errors/order-not-found-error';
-import type { OrdersRepository } from '../../repositories/orders-repository';
+import { OrdersRepository } from '../../repositories/orders-repository';
 import { left, right, type Either } from 'src/core/either';
-import type { Order } from 'src/domain/store/enterprise/entities/order';
+import { Order } from 'src/domain/store/enterprise/entities/order';
 
 interface GetOrderUseCaseRequest {
   orderId : string, 

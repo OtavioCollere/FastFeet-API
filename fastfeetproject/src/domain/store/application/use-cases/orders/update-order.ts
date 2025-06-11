@@ -2,10 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { DeliveryPersonNotFoundError } from 'src/core/errors/errors/delivery-person-not-found-error';
 import { RecipientNotFoundError } from 'src/core/errors/errors/recipient-not-found-error';
 import { OrderNotFoundError } from 'src/core/errors/errors/order-not-found-error';
-import type { RecipientsRepository } from '../../repositories/recipient-repository';
-import type { UsersRepository } from '../../repositories/users-repository';
-import type { OrdersRepository } from '../../repositories/orders-repository';
-import type { Order } from 'src/domain/store/enterprise/entities/order';
+import { RecipientsRepository } from '../../repositories/recipient-repository';
+import { UsersRepository } from '../../repositories/users-repository';
+import { OrdersRepository } from '../../repositories/orders-repository';
+import { Order } from 'src/domain/store/enterprise/entities/order';
 import { left, right, type Either } from 'src/core/either';
 
 interface UpdateOrderUseCaseRequest {

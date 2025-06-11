@@ -1,13 +1,15 @@
-import type { Encrypter } from "@/domain/store/application/cryptograph/encrypter";
-import jwt from "jsonwebtoken";
+import type { Encrypter } from '@/domain/store/application/cryptograph/encrypter'
+import { Injectable } from '@nestjs/common'
+import { JwtService } from '@nestjs/jwt'
 
+@Injectable()
 export class JwtEncrypter implements Encrypter{
   constructor(
     private jwtService : JwtService
   ) {}
 
   async encrypt(payload: Record<string, unknown>): Promise<string> {
-    await this.jwtService.signAsync(payload)
+    return await this.jwtService.signAsync(payload);
   }
 
 }

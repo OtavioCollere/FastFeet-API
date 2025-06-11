@@ -1,6 +1,6 @@
 import { BadRequestException, Body, ConflictException, Controller, Delete, Get, HttpCode, NotFoundException, Param, Post, UsePipes } from "@nestjs/common";
 import { OrderNotFoundError } from "@/core/errors/errors/order-not-found-error";
-import type { DeleteOrderUseCase } from "@/domain/store/application/use-cases/orders/delete-order";
+import { DeleteOrderUseCase } from "@/domain/store/application/use-cases/orders/delete-order";
 
 
 @Controller('/order/')

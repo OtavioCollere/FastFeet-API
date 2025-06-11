@@ -1,9 +1,9 @@
 
 
 import { right, type Either } from "@/core/either";
-import type { UsersRepository } from "../../repositories/users-repository";
 import { Recipient } from "@/domain/store/enterprise/entities/recipient";
-import type { RecipientsRepository } from "../../repositories/recipient-repository";
+import { RecipientsRepository } from "../../repositories/recipient-repository";
+import { Injectable } from "@nestjs/common";
 
 
 export interface RegisterRecipientUseCaseRequest{
@@ -24,6 +24,7 @@ null,
 }
 >
 
+@Injectable()
 export class RegisterRecipientUseCase{
   
   constructor(

@@ -1,11 +1,7 @@
-
-import type { PickupOrderUseCase } from "@/domain/store/application/use-cases/orders/pickup-order";
 import { BadRequestException, Body, ConflictException, Controller, HttpCode, NotFoundException, Post, UsePipes } from "@nestjs/common";
 import { z } from "zod";
 import { ZodValidationPipe } from "../../pipes/zod-validation-pipe";
-import { OrderIsNotAvailableToPickupError } from "@/core/errors/errors/order-is-not-available-to-pickup-error";
-import { DeliveryPersonNotFoundError } from "@/core/errors/errors/delivery-person-not-found-error";
-import type { CompleteDeliveryUseCase } from "@/domain/store/application/use-cases/orders/complete-delivery";
+import { CompleteDeliveryUseCase } from "@/domain/store/application/use-cases/orders/complete-delivery";
 import { OrderIsNotAvailableToDeliverError } from "@/core/errors/errors/order-is-not-available-to-deliver-error";
 import { DeliveryPersonIsNotTheSameError } from "@/core/errors/errors/delivery-person-is-not-the-same-error";
 

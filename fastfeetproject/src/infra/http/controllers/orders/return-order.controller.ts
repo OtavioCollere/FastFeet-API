@@ -2,7 +2,7 @@
 import { BadRequestException, Body, ConflictException, Controller, HttpCode, Post, UsePipes } from "@nestjs/common";
 import { z } from "zod";
 import { ZodValidationPipe } from "../../pipes/zod-validation-pipe";
-import type { ReturnOrderUseCase } from "@/domain/store/application/use-cases/orders/return-order";
+import { ReturnOrderUseCase } from "@/domain/store/application/use-cases/orders/return-order";
 import { OrderIsNotAvailableToReturnError } from "@/core/errors/errors/order-is-not-available-to-return";
 
 const returnOrderBodySchema = z.object({

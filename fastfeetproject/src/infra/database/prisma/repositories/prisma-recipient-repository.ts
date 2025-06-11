@@ -1,10 +1,10 @@
-import type { RecipientsRepository } from "@/domain/store/application/repositories/recipient-repository";
-import type { Recipient } from "@/domain/store/enterprise/entities/recipient";
-import type { PrismaService } from "../prisma.service";
+import { RecipientsRepository } from "@/domain/store/application/repositories/recipient-repository";
+import { Recipient } from "@/domain/store/enterprise/entities/recipient";
+import { PrismaService } from "../prisma.service";
 import { PrismaRecipientMapper } from "../mappers/prisma-recipient-mapper";
+import { Injectable } from "@nestjs/common";
 
-// verificar se o mapper nao esta redundante
-
+@Injectable()
 export class PrismaRecipientsRepository implements RecipientsRepository {
   constructor(private prisma : PrismaService){}
   
@@ -15,7 +15,7 @@ export class PrismaRecipientsRepository implements RecipientsRepository {
       data 
     })
 
-    return PrismaRecipientMapper.toDomain(recipient)
+    return recipient;
   } 
 
   async save(recipient: Recipient): Promise<Recipient> {
@@ -27,19 +27,27 @@ export class PrismaRecipientsRepository implements RecipientsRepository {
       }, data
     })
 
-    return PrismaRecipientMapper.toDomain(data);
+    return recipient;
   }
 
-  delete(recipient: Recipient): Promise<void> {
-    throw new Error("Method not implemented.");
+  async delete(recipient: Recipient): Promise<void> {
+    await this.prisma.recipient.delete({
+      where: {
+        id: recipient.id.toString(),
+      },
+    });
   }
 
   async findByRecipientId(id: string): Promise<Recipient | null> {
     const recipient = await this.prisma.recipient.findUnique({
       where : {id}
     })
+
+    if(!recipient) {
+      return null;
+    }
   
-    return PrismaRecipientMapper.toDomain(recipient) ?? null
+    return PrismaRecipientMapper.toDomain(recipient);
   }
 
 }

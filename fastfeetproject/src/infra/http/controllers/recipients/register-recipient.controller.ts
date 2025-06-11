@@ -1,8 +1,7 @@
 import { BadRequestException, Body, Controller, HttpCode, Post, UsePipes } from "@nestjs/common";
 import { ZodValidationPipe } from "../../pipes/zod-validation-pipe";
 import {z} from 'zod';
-import { E } from "@faker-js/faker/dist/airline-BUL6NtOJ";
-import type { RegisterRecipientUseCase } from "@/domain/store/application/use-cases/recipients/register-recipient";
+import { RegisterRecipientUseCase } from "@/domain/store/application/use-cases/recipients/register-recipient";
 
 export const registerRecipientBodySchema = z.object({
   name : z.string(),
@@ -15,7 +14,7 @@ export const registerRecipientBodySchema = z.object({
 
 type RegisterRecipientBodySchema = z.infer<typeof registerRecipientBodySchema>;
 
-@Controller('recipient')
+@Controller('/recipients')
 export class RegisterRecipientController{
 
   constructor(

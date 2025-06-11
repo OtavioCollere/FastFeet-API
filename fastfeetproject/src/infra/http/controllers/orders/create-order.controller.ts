@@ -7,7 +7,7 @@ import {
 } from '@nestjs/common';
 
 import { RecipientNotFoundError } from '@/core/errors/errors/recipient-not-found-error';
-import type { CreateOrderUseCase } from '@/domain/store/application/use-cases/orders/create-order';
+import { CreateOrderUseCase } from '@/domain/store/application/use-cases/orders/create-order';
 
 @Controller('/order')
 export class CreateOrderController {

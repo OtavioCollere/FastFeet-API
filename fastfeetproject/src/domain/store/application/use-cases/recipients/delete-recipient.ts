@@ -1,12 +1,7 @@
 import { left, right, type Either } from "@/core/either";
-import type { RecipientsRepository } from "../../repositories/recipient-repository";
-import { Recipient } from "@/domain/store/enterprise/entities/recipient";
-
-export class RecipientNotFoundError extends Error {
-  constructor() {
-    super('Recipient not found');
-  }
-}
+import { RecipientsRepository } from "../../repositories/recipient-repository";
+import { RecipientNotFoundError } from "@/core/errors/errors/recipient-not-found-error";
+import { Injectable } from "@nestjs/common";
 
 export interface DeleteRecipientUseCaseRequest {
   recipientId: string;
@@ -17,6 +12,7 @@ export type DeleteRecipientUseCaseResponse = Either<
   { success: true }
 >;
 
+@Injectable()
 export class DeleteRecipientUseCase {
   constructor(private recipientsRepository: RecipientsRepository) {}
 

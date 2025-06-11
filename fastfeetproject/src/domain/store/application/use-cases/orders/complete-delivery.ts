@@ -1,6 +1,6 @@
 import { left, right, type Either } from "src/core/either";
-import type { Order } from "src/domain/store/enterprise/entities/order";
-import type { OrdersRepository } from "../../repositories/orders-repository";
+import { Order } from "src/domain/store/enterprise/entities/order";
+import { OrdersRepository } from "../../repositories/orders-repository";
 import { OrderIsNotAvailableToDeliverError } from "src/core/errors/errors/order-is-not-available-to-deliver-error";
 import { DeliveryPersonIsNotTheSameError } from "src/core/errors/errors/delivery-person-is-not-the-same-error";
 import { Injectable } from "@nestjs/common";

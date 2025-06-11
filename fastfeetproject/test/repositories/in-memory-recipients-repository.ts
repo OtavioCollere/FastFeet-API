@@ -1,5 +1,5 @@
-import type { RecipientsRepository } from '@/domain/store/application/repositories/recipient-repository';
-import type { Recipient } from '@/domain/store/enterprise/entities/recipient';
+import { RecipientsRepository } from '@/domain/store/application/repositories/recipient-repository';
+import { Recipient } from '@/domain/store/enterprise/entities/recipient';
 
 export class InMemoryRecipientsRepository implements RecipientsRepository {
   public items: Recipient[] = [];

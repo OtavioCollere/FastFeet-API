@@ -1,5 +1,7 @@
-import type { Recipient } from '../../enterprise/entities/recipient';
+import { Injectable } from '@nestjs/common';
+import { Recipient } from '../../enterprise/entities/recipient';
 
+@Injectable()
 export abstract class RecipientsRepository {
   // Crud methods
   abstract create(recipient: Recipient): Promise<Recipient>;

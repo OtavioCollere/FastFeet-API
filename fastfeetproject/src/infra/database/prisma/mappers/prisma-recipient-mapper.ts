@@ -8,7 +8,7 @@ export class PrismaRecipientMapper{
   static toDomain(raw : PrismaRecipient) : Recipient {
     return Recipient.create({
       name : raw.name,
-      zipCode : raw.zip_code,
+      zipCode : raw.zipCode,
       address : raw.address,
       district : raw.district,
       number : raw.number,
@@ -20,7 +20,7 @@ export class PrismaRecipientMapper{
     return {
       id: recipient.id.toString(),
       name: recipient.name,
-      zip_code: recipient.zipCode,
+      zipCode: recipient.zipCode,
       address: recipient.address,
       district: recipient.district,
       number: recipient.number,

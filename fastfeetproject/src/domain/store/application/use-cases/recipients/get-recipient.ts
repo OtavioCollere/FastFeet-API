@@ -1,7 +1,8 @@
 import { left, right, type Either } from "@/core/either";
-import type { RecipientsRepository } from "../../repositories/recipient-repository";
+import { RecipientsRepository } from "../../repositories/recipient-repository";
 import { Recipient } from "@/domain/store/enterprise/entities/recipient";
 import { RecipientNotFoundError } from "@/core/errors/errors/recipient-not-found-error";
+import { Injectable } from "@nestjs/common";
 
 export interface GetRecipientUseCaseRequest {
   recipientId: string;
@@ -12,6 +13,7 @@ export type GetRecipientUseCaseResponse = Either<
   { recipient: Recipient }
 >;
 
+@Injectable()
 export class GetRecipientUseCase {
   constructor(private recipientsRepository: RecipientsRepository) {}
 

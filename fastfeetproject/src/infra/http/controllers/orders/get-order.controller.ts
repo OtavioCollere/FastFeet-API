@@ -1,10 +1,10 @@
 import { BadRequestException, Body, ConflictException, Controller, Get, HttpCode, NotFoundException, Param, Post, UsePipes } from "@nestjs/common";
-import type { GetOrderUseCase } from "@/domain/store/application/use-cases/orders/get-order.ts";
 import { OrderNotFoundError } from "@/core/errors/errors/order-not-found-error";
+import { GetOrderUseCase } from "@/domain/store/application/use-cases/orders/get-order";
 
 
-@Controller('/order/')
-export class PickUpOrderController {
+@Controller('/order')
+export class GetOrderController {
 
   constructor(
     private getOrder : GetOrderUseCase

@@ -1,4 +1,4 @@
-import type { PickupOrderUseCase } from "@/domain/store/application/use-cases/orders/pickup-order";
+import { PickupOrderUseCase } from "@/domain/store/application/use-cases/orders/pickup-order";
 import { BadRequestException, Body, ConflictException, Controller, HttpCode, NotFoundException, Post, UsePipes } from "@nestjs/common";
 import { z } from "zod";
 import { ZodValidationPipe } from "../../pipes/zod-validation-pipe";

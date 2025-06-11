@@ -1,7 +1,7 @@
 import { left, right, type Either } from "@/core/either";
 import { CpfAlreadyRegistered } from "@/core/errors/errors/cpf-already-registered-error";
 import { User } from "@/domain/store/enterprise/entities/user";
-import type { UsersRepository } from "../../repositories/users-repository";
+import { UsersRepository } from "../../repositories/users-repository";
 import type { HashGenerator } from "../../cryptograph/hash-generator";
 
 

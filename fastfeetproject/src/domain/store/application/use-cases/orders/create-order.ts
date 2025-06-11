@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import type { OrdersRepository } from 'src/domain/store/application/repositories/orders-repository';
+import { OrdersRepository } from 'src/domain/store/application/repositories/orders-repository';
 import { left, right, type Either } from 'src/core/either';
 import { Order } from 'src/domain/store/enterprise/entities/order';
 import { RecipientNotFoundError } from 'src/core/errors/errors/recipient-not-found-error';
-import type { RecipientsRepository } from 'src/domain/store/application/repositories/recipient-repository';
+import { RecipientsRepository } from 'src/domain/store/application/repositories/recipient-repository';
 import { UniqueEntityID } from '@/core/entities/unique-entity-id';
 
 interface CreateOrderUseCaseRequest {

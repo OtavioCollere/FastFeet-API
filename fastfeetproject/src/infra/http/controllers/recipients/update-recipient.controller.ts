@@ -1,7 +1,7 @@
 import { BadRequestException, Body, Controller, HttpCode, NotFoundException, Patch, Post, UsePipes } from "@nestjs/common";
 import { ZodValidationPipe } from "../../pipes/zod-validation-pipe";
 import {z} from 'zod';
-import type { UpdateRecipientUseCase } from "@/domain/store/application/use-cases/recipients/update-recipient";
+import { UpdateRecipientUseCase } from "@/domain/store/application/use-cases/recipients/update-recipient";
 import { RecipientNotFoundError } from "@/core/errors/errors/recipient-not-found-error";
 
 const updateRecipientBodySchema = z.object({

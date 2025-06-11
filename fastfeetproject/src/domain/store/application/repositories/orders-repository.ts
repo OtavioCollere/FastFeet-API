@@ -1,4 +1,4 @@
-import type { Order } from "src/domain/store/enterprise/entities/order";
+import { Order } from "src/domain/store/enterprise/entities/order";
 
 export abstract class OrdersRepository {
   // Crud methods

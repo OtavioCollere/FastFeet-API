@@ -1,11 +1,10 @@
 import { BadRequestException, Controller, Get, HttpCode, NotFoundException, Param,  } from "@nestjs/common";
 import { RecipientNotFoundError } from "@/core/errors/errors/recipient-not-found-error";
-import type { GetRecipientUseCase } from "@/domain/store/application/use-cases/recipients/get-recipient";
-import { PrismaRecipientMapper } from "@/infra/database/prisma/mappers/prisma-recipient-mapper";
+import { GetRecipientUseCase } from "@/domain/store/application/use-cases/recipients/get-recipient";
 import { RecipientPresenter } from "../../presenter/recipient-presenter";
 
-@Controller('/recipient')
-export class UpdateRecipientController{
+@Controller('/recipients')
+export class GetRecipientController{
 
   constructor(
     private getRecipient : GetRecipientUseCase
