@@ -4,7 +4,7 @@ import {
   type RecipientProps
 } from '@/domain/store/enterprise/entities/recipient';
 import { PrismaRecipientMapper } from '@/infra/database/prisma/mappers/prisma-recipient-mapper';
-import type { PrismaService } from '@/infra/database/prisma/prisma.service';
+import { PrismaService } from '@/infra/database/prisma/prisma.service';
 
 import { faker } from '@faker-js/faker';
 import { Injectable } from '@nestjs/common';

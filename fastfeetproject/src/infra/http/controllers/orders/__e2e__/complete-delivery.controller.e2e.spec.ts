@@ -3,6 +3,7 @@ import { PrismaService } from "@/infra/database/prisma/prisma.service"
 import type { INestApplication } from "@nestjs/common"
 import { Test} from "@nestjs/testing"
 import request from 'supertest'
+import type { OrderFactory } from "test/factories/make-order"
 import { RecipientFactory } from "test/factories/make-recipient"
 
 describe('Complete delivery (E2E)', () => {
