@@ -11,7 +11,7 @@ export class GetRecipientController{
   ) {}
 
   @Get('/:recipientId')
-  @HttpCode(201)
+  @HttpCode(200)
   async handle(@Param('recipientId') recipientId : string) {
 
     const result = await this.getRecipient.execute({recipientId})

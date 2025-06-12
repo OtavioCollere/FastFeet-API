@@ -31,7 +31,7 @@ describe('Create order (E2E)', () => {
     const response = await request(app.getHttpServer()).post(`/${recipient.id}`)
     .send();
 
-    expect(response.statusCode).toBe(201));
+    expect(response.statusCode).toBe(201);
 
     const userOnDatabase = await prisma.order.findUnique({
       where : {

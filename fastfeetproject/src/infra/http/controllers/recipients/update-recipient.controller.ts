@@ -16,7 +16,7 @@ const updateRecipientBodySchema = z.object({
 
 type UpdateRecipientBodySchema = z.infer<typeof updateRecipientBodySchema>;
 
-@Controller('recipient')
+@Controller('/recipients')
 export class UpdateRecipientController{
 
   constructor(
@@ -24,7 +24,7 @@ export class UpdateRecipientController{
   ) {}
 
   @Patch()
-  @HttpCode(201)
+  @HttpCode(200)
   @UsePipes(new ZodValidationPipe(updateRecipientBodySchema))
   async handle(@Body() body : UpdateRecipientBodySchema) {
 
