@@ -3,6 +3,7 @@ import { ZodValidationPipe } from "../../pipes/zod-validation-pipe";
 import { z } from "zod";
 import type { RegisterUserUseCase } from "@/domain/store/application/use-cases/users/register-user";
 import { CpfAlreadyRegistered } from "@/core/errors/errors/cpf-already-registered-error";
+import { Public } from "@/auth/public";
 
 export const registerUserBodySchema = z.object({
   name: z.string(),
@@ -13,6 +14,7 @@ export const registerUserBodySchema = z.object({
 type RegisterUserBodySchema = z.infer<typeof registerUserBodySchema>;
 
 @Controller('user')
+@Public()
 export class RegisterUserController {
   constructor(
     private readonly registerUser: RegisterUserUseCase

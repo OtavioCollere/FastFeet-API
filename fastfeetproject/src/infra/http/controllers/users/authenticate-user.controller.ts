@@ -4,6 +4,7 @@ import { ZodValidationPipe } from "../../pipes/zod-validation-pipe";
 import { z } from "zod";
 import type { AuthenticateUserUseCase } from "@/domain/store/application/use-cases/users/authenticate-user";
 import { WrongCredentialsdError } from "@/core/errors/errors/wrong-credentials-error";
+import { Public } from "@/auth/public";
 
 export const authenticateUserBodySchema = z.object({
   cpf: z.string().min(11).max(11),
@@ -13,6 +14,7 @@ export const authenticateUserBodySchema = z.object({
 type AuthenticateUserBodySchema = z.infer<typeof authenticateUserBodySchema>;
 
 @Controller('/sessions')
+@Public()
 export class RegisterUserController {
   constructor(
     private readonly authenticateUser : AuthenticateUserUseCase

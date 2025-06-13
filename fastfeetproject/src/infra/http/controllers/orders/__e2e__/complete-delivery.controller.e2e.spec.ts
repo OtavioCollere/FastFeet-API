@@ -1,9 +1,10 @@
 import { AppModule } from "@/infra/app.module"
+import { DatabaseModule } from "@/infra/database/database.module"
 import { PrismaService } from "@/infra/database/prisma/prisma.service"
 import type { INestApplication } from "@nestjs/common"
 import { Test} from "@nestjs/testing"
 import request from 'supertest'
-import type { OrderFactory } from "test/factories/make-order"
+import { OrderFactory } from "test/factories/make-order"
 import { RecipientFactory } from "test/factories/make-recipient"
 
 describe('Complete delivery (E2E)', () => {
@@ -31,7 +32,7 @@ describe('Complete delivery (E2E)', () => {
     // criar factory do deliveryPerson
 
     const recipient = await recipientFactory.makePrismaRecipient();
-    await prisma.recipients.create(recipient)
+    await prisma.recipient.create(recipient)
 
     const order = await orderFactory.makePrismaOrder({
       status : 'PICKED_UP',

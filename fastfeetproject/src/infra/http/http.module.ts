@@ -23,11 +23,14 @@ import { ReturnOrderUseCase } from "@/domain/store/application/use-cases/orders/
 import { UpdateOrderUseCase } from "@/domain/store/application/use-cases/orders/update-order";
 import { RegisterUserUseCase } from "@/domain/store/application/use-cases/users/register-user";
 import { AuthenticateUserUseCase } from "@/domain/store/application/use-cases/users/authenticate-user";
+import { CryptographModule } from "../cryptograph/cryptograph.module";
+import { APP_GUARD } from "@nestjs/core";
 
 
 @Module({
   imports: [
-    DatabaseModule
+    DatabaseModule,
+    CryptographModule
   ],
   controllers: [
     RegisterRecipientController,
